@@ -59,7 +59,9 @@
             this.ClientSize = new System.Drawing.Size(166, 138);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MENU";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MENU";
             this.Load += new System.EventHandler(this.MENU_Load);
             this.ResumeLayout(false);

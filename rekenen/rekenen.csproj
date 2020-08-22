@@ -64,7 +64,6 @@
     <Compile Include="Overschrijven.Designer.cs">
       <DependentUpon>Overschrijven.cs</DependentUpon>
     </Compile>
-    <Compile Include="RekenenLijst.cs" />
     <Compile Include="Rekening.cs" />
     <Compile Include="Credit.cs" />
     <Compile Include="Debit.cs" />

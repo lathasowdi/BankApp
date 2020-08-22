@@ -12,7 +12,7 @@ namespace rekenen
         public int Leeftijd { get; set; }
         public string AccountNumber { get; set; }
         public double Saldo { get; set; }
-        public List<Rekening> RekenLijst = new List<Rekening>();
+       
 
         public Rekening(string eigenaar, string accountNumber,double saldo, int leeftijd)
         {
@@ -25,9 +25,9 @@ namespace rekenen
         {
             string beschrijving;
             beschrijving = $"Uw Naam is {Eigenaar}" + "\n"
-                           + "Uw Saldo is { Saldo }" + "\n"
-                          + "Uw AccountNumber is {AccountNumber }" + "\n"
-                      + "Uw Leeftijd is { Leeftijd }"; 
+                           + $"Uw Saldo is { Saldo }" + "\n"
+                          + $"Uw AccountNumber is {AccountNumber }" + "\n"
+                           + $"Uw Leeftijd is { Leeftijd }"; 
             return beschrijving;
         }
 

@@ -18,6 +18,7 @@ namespace rekenen
         }
         private void button1_Click(object sender, EventArgs e)
         {
+           
             if (groupBox1.Enabled == true && textBox1.Text.Trim().Length > 0 && textBox2.Text != " ")
             {
                 foreach (RadioButton item in groupBox1.Controls.OfType<RadioButton>())
@@ -25,31 +26,28 @@ namespace rekenen
                     if (radioButton1.Checked == true)
                     {
                         Rekening deb = new Debit(textBox1.Text.Trim(), RekeningNummer(), 10000, Convert.ToInt32(textBox2.Text));
-                        MENU.mijnrekenen.RekenLijst.Add(deb);
-                        label3.Visible = false;
-                        textBox3.Visible = false;
+                        MENU.RekenLijst.Add(deb);
+                        break;
+                       
                     }
                     else if (radioButton2.Checked == true)
                     {
-                        Rekening cre = new Credit(textBox1.Text.Trim(), RekeningNummer(), 10000, Convert.ToInt32(textBox2.Text), textBox3.Text.Trim());
-                        MENU.mijnrekenen.RekenLijst.Add(cre);
-                        label3.Visible = true;
-                        textBox3.Visible = true;
+                        Rekening cre = new Credit(textBox1.Text.Trim(), RekeningNummer(), 10000, Convert.ToInt32(textBox2.Text), CVC());
+                        MENU.RekenLijst.Add(cre);
+                        break;
+                        
                     }
                     else if (radioButton3.Checked == true)
                     {
                         Rekening spa = new SpaarRekening(textBox1.Text.Trim(), RekeningNummer(), 10000, Convert.ToInt32(textBox2.Text));
-                        MENU.mijnrekenen.RekenLijst.Add(spa);
+                        MENU.RekenLijst.Add(spa);
+                        break;
                     }
                     else
                         MessageBox.Show("Account kiezen A.u.b");
                 }
                 textBox1.Clear();
                 textBox2.Clear();
-                textBox3.Clear();
-
-                label3.Visible = false;
-                textBox3.Visible = false;
                 MessageBox.Show("Account created");
             }
 
@@ -67,7 +65,7 @@ namespace rekenen
             }
         }
 
-       public string RekeningNummer()
+       public static string RekeningNummer()
         {
             string rek = "BE";
             Random rnd = new Random();
@@ -83,6 +81,22 @@ namespace rekenen
 
 
             return rek;
+        }
+        public int CVC()
+        {
+            int cvc =10;
+            for (int i = 0; i < 3; i++)
+            {
+                Random rnd = new Random();
+                cvc = Convert.ToInt32(cvc.ToString() + rnd.Next(0, 9).ToString());
+                System.Threading.Thread.Sleep(100);
+            }
+            return cvc;
+        }
+
+        private void Accountmaken_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -8,8 +8,8 @@ namespace rekenen
 {
     public class Credit:Rekening
     {
-        public string CVV { get; set; }
-        public Credit(string eigenaar, string accountNumber, double saldo, int leeftijd, string cvv) : base(eigenaar, accountNumber, saldo, leeftijd)
+        public int CVV { get; set; }
+        public Credit(string eigenaar, string accountNumber, double saldo, int leeftijd, int cvv) : base(eigenaar, accountNumber, saldo, leeftijd)
         {
             CVV = cvv;
         }
@@ -17,6 +17,7 @@ namespace rekenen
         {
             return base.Beschrijf() + $" CVV: {CVV}.";
         }
+        
 
     }
 }
