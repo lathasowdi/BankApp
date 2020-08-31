@@ -22,7 +22,7 @@ namespace rekenen
         {
            comboBox1.DataSource = null;
            comboBox1.DataSource = overzicht.Accountnumber;
-           comboBox1.SelectedIndex = -1;
+           comboBox1.SelectedIndex=-1;
         }
 
         private void button1_Click(object sender, EventArgs e)
